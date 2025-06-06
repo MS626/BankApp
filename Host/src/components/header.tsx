@@ -1,10 +1,18 @@
 import React from "react";
 import "../styles/header.css";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onToggleSidebar: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   return (
     <header className="header">
       <div className="header-left">
+        {/* Botão só visível em mobile */}
+        <button className="menu-toggle" onClick={onToggleSidebar}>
+          ☰
+        </button>
         <span className="emoji">🏦</span>
         <div className="space-between-rigth"></div>
         <span className="bank-name">ITSector, Lda</span>

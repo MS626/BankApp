@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/header";
 import SideBar from "./components/sideBar";
@@ -8,11 +8,22 @@ const DashboardApp = lazy(() => import("companyDashboard/App"));
 const UpdateApp = lazy(() => import("companyUpdateData/App"));
 
 const App: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen((prev) => !prev);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+
   return (
     <div className="app-container">
-      <Header />
+      <Header onToggleSidebar={toggleSidebar} />
+      {sidebarOpen && <div className="overlay" onClick={closeSidebar}></div>}
       <div className="main-layout">
-        <SideBar />
+        <SideBar isOpen={sidebarOpen} />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route index element={<Navigate to="/dashboard" />} />

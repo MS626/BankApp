@@ -2,7 +2,6 @@
 
 .mini-header {
   width: 100%;
-  max-height: 10px;
   padding: 1.5rem;
   font-family: "Open Sans", sans-serif;
   background-color: white;
@@ -42,4 +41,70 @@
   padding: 1px 6px;
   border-radius: 10px;
   margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .mini-header {
+    width: 100%;
+    padding: 0 1rem;
+    background-color: transparent;
+    box-sizing: border-box;
+  }
+
+  .mini-header ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "item1 item2"
+      "item3 item3"
+      "item4 item5";
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .mini-header li:nth-child(1) {
+    grid-area: item1;
+  }
+  .mini-header li:nth-child(2) {
+    grid-area: item2;
+  }
+  .mini-header li:nth-child(3) {
+    grid-area: item3;
+  }
+  .mini-header li:nth-child(4) {
+    grid-area: item4;
+  }
+  .mini-header li:nth-child(5) {
+    grid-area: item5;
+  }
+
+  .mini-header li {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .mini-header li.active {
+    background-color: #e6f0eb;
+    color: #548668;
+    font-weight: bold;
+    border-bottom: none;
+  }
+
+  .mini-header li:hover {
+    background-color: #f2f2f2;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 2px 5px;
+  }
 }
