@@ -1,7 +1,7 @@
 import React from "react";
 import useMovementsStore from "../store/store";
 import MiniHeader from "./miniHeader";
-import "../styles/homePage.css";
+import "../styles/homepage.css";
 
 const HomePage: React.FC = () => {
   const movements = useMovementsStore((state) => state.movements);
@@ -90,9 +90,9 @@ const HomePage: React.FC = () => {
       <div className="movements-container">
         <div className="movements-header">
           <h2>Últimos movimentos</h2>
-          {/* <a href="#" className="view-all">
+           <a href="#" className="view-all">
             Ver todos os movimentos
-          </a> */}
+          </a>
         </div>
 
         {movements.map((mov, idx) => (
