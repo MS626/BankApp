@@ -90,9 +90,9 @@ const HomePage: React.FC = () => {
       <div className="movements-container">
         <div className="movements-header">
           <h2>Últimos movimentos</h2>
-          <a href="#" className="view-all">
+          {/* <a href="#" className="view-all">
             Ver todos os movimentos
-          </a>
+          </a> */}
         </div>
 
         {movements.map((mov, idx) => (
