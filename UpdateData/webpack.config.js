@@ -15,7 +15,7 @@ module.exports = {
     filename: isProduction ? "bundle.[contenthash].js" : "bundle.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: isProduction
-      ? "https://updatedata-bancoitsector.netlify.app/"
+      ? "https://updatedata-itsectorbank.netlify.app/"
       : "http://localhost:3002/",
     clean: true,
   },
@@ -41,7 +41,7 @@ module.exports = {
       favicon: "./public/favicon.png",
       inject: "body",
       publicPath: isProduction
-        ? "https://updatedata-bancoitsector.netlify.app/"
+        ? "https://updatedata-itsectorbank.netlify.app/"
         : "http://localhost:3002/",
     }),
     new ModuleFederationPlugin({

@@ -15,7 +15,7 @@ module.exports = {
     filename: isProduction ? "bundle.[contenthash].js" : "bundle.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: isProduction
-      ? "https://bancoitsector.netlify.app/"
+      ? "https://itsectorbank.netlify.app/"
       : "http://localhost:3000/",
     clean: true,
   },
@@ -41,7 +41,7 @@ module.exports = {
       favicon: "./public/favicon.png",
       inject: "body",
       publicPath: isProduction
-        ? "https://bancoitsector.netlify.app/"
+        ? "https://itsectorbank.netlify.app/"
         : "http://localhost:3000/",
     }),
     new ModuleFederationPlugin({
@@ -49,10 +49,10 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         companyDashboard: isProduction
-          ? "companyDashboard@https://dashboard-bancoitsector.netlify.app/remoteEntry.js"
+          ? "companyDashboard@https://dashboard-itsectorbank.netlify.app/remoteEntry.js"
           : "companyDashboard@http://localhost:3001/remoteEntry.js",
           companyUpdateData: isProduction
-          ? "companyUpdateData@https://updatedata-bancoitsector.netlify.app/remoteEntry.js"
+          ? "companyUpdateData@https://updatedata-itsectorbank.netlify.app/remoteEntry.js"
           : "companyUpdateData@http://localhost:3002/remoteEntry.js",
       },
       exposes: {},
