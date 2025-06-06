@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+.documentation-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 1rem 0rem 1.5rem;
+  max-height: 100vh;
+}
+
+.documentation-container {
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  font-size: small;
+}
+
+.doc-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.documents-sub {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+.doc-subtitle {
+  color: #888;
+  font-size: 0.85rem;
+  align-items: flex-start;
+}
+
+.doc-box {
+  border: 1px solid #bfbfbf;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  margin-bottom: 1.5rem;
+  width: 834px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doc-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.doc-icon {
+  font-size: 1.8rem;
+  color: #548668;
+}
+
+.doc-btn {
+  border-radius: 999px;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #548668;
+  background: transparent;
+  color: #548668;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.doc-btn:hover {
+  background: #f1f5f3;
+}
+
+.doc-link {
+  border: none;
+  background: none;
+  color: #548668;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pdf-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.pdf-container {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 90%;
+  position: relative;
+}
+
+.accept-btn {
+  margin-top: 1rem;
+  background-color: #548668;
+  color: white;
+  padding: 0.6rem 1.6rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-code {
+  width: 100%;
+  max-width: 834px;
+  margin-top: 1rem;
+}
+
+.auth-title {
+  font-weight: 600;
+}
+
+.auth-sub {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.code-inputs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.code-inputs input {
+  width: 30px;
+  height: 40px;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.auth-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.validate-btn {
+  padding: 0.6rem 2rem;
+  border-radius: 20px;
+  background: #ccc;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: not-allowed;
+}
+
+.validate-btn.active {
+  background: #548668;
+  cursor: pointer;
+}
+
+.code-error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}

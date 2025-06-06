@@ -1,0 +1,91 @@
+.update-documents-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 1rem 0rem 1.5rem;
+}
+
+.update-documents-container {
+  margin: 0 auto;
+  width: 1280px;
+  padding: 2rem;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.steps-subtitle {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.steps-subtitle-upload {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.update-documents-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c2c2c;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.upload-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.upload-field {
+  border: 1px solid #bfbfbf;
+  border-radius: 16px;
+  padding: 2rem;
+  background-color: white;
+  margin-bottom: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-field.error {
+  border-color: #ff4d4f;
+}
+
+.upload-field label {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333333;
+}
+
+.upload-field input[type="file"] {
+  padding: 4px 0;
+}
+
+.file-name {
+  font-size: 14px;
+  color: #548668;
+  font-weight: 600;
+}
+
+.error-message {
+  font-size: 13px;
+  color: #ff4d4f;
+  font-weight: 500;
+}

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+.partner-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 1rem 0rem 1.5rem;
+  max-height: 100vh;
+}
+
+.partner-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 980px;
+  padding: 2rem;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  font-size: small;
+}
+
+.partner-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.step-box {
+  margin-top: 1rem;
+}
+
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Campos desativados com bandeira */
+.field-disabled {
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  border-radius: 12px;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.field-disabled img {
+  width: 20px;
+  height: 14px;
+  margin-right: 0.5rem;
+}
+
+/* Ajuste para layout com bandeiras à direita */
+.flag-right {
+  display: flex;
+  align-items: flex-end;
+}

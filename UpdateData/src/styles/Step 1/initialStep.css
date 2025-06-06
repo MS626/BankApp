@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+.step-inicio-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 1rem 0rem 1.5rem;
+  max-height: 100vh;
+}
+
+.step-inicio-container {
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.step-subtitle {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.step-box {
+  border: 1px solid #bfbfbf;
+  border-radius: 16px;
+  padding: 2rem;
+  background-color: white;
+  margin-bottom: 4rem;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.step-list li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.05rem;
+  color: #1c1c1c;
+}
+
+.step-icon {
+  font-size: 1.6rem;
+  color: #548668;
+  min-width: 40px;
+  text-align: center;
+}
+
+.step-text {
+  flex: 1;
+  line-height: 1.5;
+}

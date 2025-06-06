@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+.header {
+  height: 80px;
+  width: 100%;
+  max-height: 50px;
+  padding: 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emoji {
+  font-size: 1.5rem;
+}
+
+.bank-name,
+.user-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.space-between-rigth {
+  padding-right: 10px;
+}

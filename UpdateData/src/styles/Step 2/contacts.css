@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+.contacts-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 1rem 0rem 1.5rem;
+  max-height: 100vh;
+}
+
+.contacts-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 980px;
+  padding: 2rem;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  font-size: small;
+}
+
+.contacts-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.data-space {
+  padding-bottom: 1rem;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+  width: 100%;
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-row.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.contact-row.disabled .flag-options {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.contact-row.disabled .flag-icon.clickable {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.add-option {
+  display: flex;
+  align-items: center;
+  color: #aaa;
+  cursor: pointer;
+  padding-right: 113px;
+}
+
+.add-circle {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #888;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 1rem;
+}
+
+.contact-box {
+  border-radius: 24px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  overflow: visible;
+}
+
+.text-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.contact-in {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  color: #548668;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.contact-label {
+  color: #bbb;
+  font-size: 0.7rem;
+  padding-left: 12px;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.contact-value {
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 12px;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: initial;
+  position: relative;
+}
+
+.contact-input {
+  font-size: 0.8rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.6rem;
+  margin-top: 0.25rem;
+  margin-left: 15px;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  font-weight: 300;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.cancel-btn,
+.save-btn {
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.6rem;
+}
+
+.cancel-btn {
+  color: #548668;
+}
+
+.save-btn {
+  background-color: #548668;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 12px;
+}
+
+.delete-icon {
+  color: #f08080;
+  cursor: pointer;
+  padding-left: 0.8rem;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.auth-coding {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 834px;
+}
+
+.auth-title {
+  font-weight: 600;
+}
+
+.auth-sub {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.8rem;
+}
+
+.coding-inputs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.coding-inputs input {
+  width: 30px;
+  height: 40px;
+  font-size: 0.9rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.auth-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.validating-btn {
+  padding: 0.6rem 2rem;
+  border-radius: 20px;
+  background: #ccc;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: not-allowed;
+  margin-left: 20rem;
+}
+
+.validating-btn.active {
+  background: #548668;
+  cursor: pointer;
+}
+
+.close-auth {
+  padding: 0.6rem 2rem;
+  border-radius: 20px;
+  background: #548668;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.coding-error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 18px;
+  vertical-align: middle;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.flag-icon.clickable {
+  cursor: pointer;
+}
+
+.flag-dropdown-wrapper {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.flag-option {
+  width: 24px;
+  height: 18px;
+  margin: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+  display: block;
+}
+
+.flag-option:hover {
+  transform: scale(1.1);
+}
+
+.flag-options {
+  position: fixed;
+  top: auto;
+  left: auto;
+  transform: translateY(2px);
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 6px;
+  z-index: 9999;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  width: max-content;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.flag-options img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

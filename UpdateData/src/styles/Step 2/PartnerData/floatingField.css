@@ -1,0 +1,55 @@
+.floating-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.floating-field input,
+.floating-field select {
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 1.3rem 1rem 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #fff;
+  appearance: none;
+  width: 100%;
+}
+
+.floating-field select {
+  background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+}
+
+.floating-field label {
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.floating-field input::placeholder {
+  color: transparent;
+}
+
+.floating-field input:focus + label,
+.floating-field select:focus + label,
+.floating-field .filled {
+  top: 0.4rem;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.floating-field.disabled input,
+.floating-field.disabled select {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}

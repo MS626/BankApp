@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+.conclusion-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  max-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.conclusion-container {
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.conclusion-check {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #548668;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.conclusion-check::before {
+  content: "✔";
+  color: #548668;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.conclusion-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.conclusion-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.conclusion-rating {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 1.5rem; */
+}
+
+.rating-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rating-stars span {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: transform 0.2s ease, color 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+}
+
+.rating-stars span.filled {
+  color: #ffcc00;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.textarea {
+  width: 700px;
+  max-width: 1000px;
+  min-height: 75px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem 1rem 1rem 1rem;
+  font-size: 0.8rem;
+  resize: none;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.char-counter {
+  align-self: flex-end;
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+.conclusion-buttons {
+  padding: 0.6rem 2.5rem;
+  background-color: #c2d5c7;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: not-allowed;
+  font-size: 1rem;
+  opacity: 0.9;
+  transition: background-color 0.3s ease;
+}
+
+.conclusion-buttons.enabled {
+  background-color: #548668;
+  cursor: pointer;
+}
+
+.conclusion-buttons.enabled:hover {
+  background-color: #466f59;
+}
+
+.final-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2rem;
+}
+
+.go-home-btn {
+  padding: 0.6rem 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #548668;
+  background: transparent;
+  color: #548668;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.go-home-btn:hover {
+  background-color: #548668;
+  color: white;
+}
