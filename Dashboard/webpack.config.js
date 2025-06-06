@@ -21,6 +21,7 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    fullySpecified: false,
   },
   module: {
     rules: [
