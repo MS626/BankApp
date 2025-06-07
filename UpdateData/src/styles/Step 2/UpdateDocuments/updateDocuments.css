@@ -89,3 +89,55 @@
   color: #ff4d4f;
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .update-documents-wrapper {
+    padding: 0rem 1rem 0rem 1rem;
+  }
+
+  .update-documents-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem 0 !important;
+    align-items: stretch !important;
+    box-sizing: border-box;
+  }
+
+  .steps-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .steps-subtitle-upload {
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  .upload-fields {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .upload-field,
+  .upload-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    margin-inline: 0;
+    border-radius: 10px;
+  }
+
+  .upload-field label {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .file-name {
+    font-size: 0.8rem;
+  }
+
+  .error-message {
+    font-size: 0.75rem;
+  }
+}

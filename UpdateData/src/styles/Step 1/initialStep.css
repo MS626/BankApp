@@ -74,6 +74,10 @@
 }
 
 @media (max-width: 768px) {
+  .step-inicio-wrapper {
+    padding: 0rem 1rem 0rem 1rem;
+  }
+
   .step-inicio-container {
     padding: 1.5rem 1rem;
   }
