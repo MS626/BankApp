@@ -116,6 +116,7 @@
 .upload-preview .left .file-info .file-name {
   font-size: 0.7rem;
   color: #999;
+  align-self: flex-start;
 }
 
 .upload-preview .actions {

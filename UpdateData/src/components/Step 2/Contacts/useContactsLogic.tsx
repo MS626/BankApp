@@ -21,6 +21,9 @@ export function useContactsLogic() {
     null
   );
   const inputRefs = useRef<HTMLInputElement[]>([]);
+  const [lastVerifiedIndex, setLastVerifiedIndex] = useState<number | null>(
+    null
+  );
 
   useEffect(() => {
     setStep(2);
@@ -70,17 +73,25 @@ export function useContactsLogic() {
 
   const handleCancel = (index: number) => {
     const updated = [...fields];
+
     if (!updated[index].value) {
       updated[index].showInput = false;
     } else {
       updated[index].inputValue = updated[index].value;
       updated[index].showInput = false;
     }
+
     updated[index].isEditing = false;
 
-    if (showAuthCode && verifyingIndex === index) {
+    const shouldReopen =
+      showAuthCode || index === verifyingIndex || index === lastVerifiedIndex;
+
+    if (shouldReopen) {
+      updated[index].showInput = true;
+      updated[index].isEditing = true;
       setShowAuthCode(false);
       setVerifyingIndex(null);
+      setLastVerifiedIndex(null); // <- reset
       setCode(["", "", "", "", "", ""]);
     }
 
@@ -112,6 +123,7 @@ export function useContactsLogic() {
       updated[verifyingIndex].isVerified = true;
       setFields(updated);
       setShowAuthCode(checkIfAnyNeedsVerification(updated));
+      setLastVerifiedIndex(verifyingIndex);
       setVerifyingIndex(null);
       setCode(["", "", "", "", "", ""]);
     } else {
