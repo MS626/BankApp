@@ -445,6 +445,10 @@
     font-size: 0.75rem;
   }
 
+  .account-balance {
+    padding-top: 10px;
+  }
+
   .account-balance .value {
     font-size: 1.2rem;
   }
@@ -457,13 +461,21 @@
   }
 
   .account-stats {
+    display: flex;
     flex-direction: column;
+    gap: 1rem;
   }
 
   .stat-card {
     width: 100%;
+    box-sizing: border-box;
     height: auto;
-    padding: 1rem;
+  }
+
+  .icons-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
   }
 
   .stat-title {
@@ -489,28 +501,84 @@
     gap: 0.5rem;
   }
 
-  .movement-row {
-    grid-template-columns: 1fr;
-    grid-row-gap: 0.5rem;
-    padding: 1rem 0;
-    text-align: left;
+  .view-all {
+    font-size: 0.75rem;
+    color: #548668;
+    font-weight: normal;
+    align-self: flex-start;
   }
 
-  .movement-date,
-  .movement-desc,
-  .movement-amount,
-  .movement-sub,
-  .movement-icons,
+  .movement-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid #eaeaea;
+    position: relative;
+  }
+
+  .movement-date {
+    font-size: 0.75rem;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-start;
+  }
+
   .movement-arrow {
-    font-size: 0.8rem;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    font-size: 1rem;
+    color: #999;
+  }
+
+  .movement-desc {
+    font-size: 0.85rem;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: left;
+    align-self: flex-start;
+    padding-bottom: 1rem;
   }
 
   .movement-icons {
-    justify-content: flex-start;
-    padding: 0;
+    position: absolute;
+    bottom: 1rem;
+    left: 2.4rem;
+    display: flex;
+    font-size: 1.2rem;
+    align-items: center;
+  }
+
+  .movement-icon {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    transform: translateX(0.5rem);
+    font-size: 1.2rem;
   }
 
   .movement-actions {
-    text-align: left;
+    margin-left: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .movement-amount {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  .movement-sub {
+    font-size: 0.75rem;
+    color: #999;
+    text-align: right;
+  }
+
+  .space-movements {
+    height: auto;
   }
 }

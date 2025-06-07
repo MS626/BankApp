@@ -10,7 +10,7 @@ declare module "#not-for-import/companyDashboard/components/miniHeader" {
 }
 declare module "#not-for-import/companyDashboard/components/homePage" {
     import React from "react";
-    import "../styles/homePage.css";
+    import "../styles/homepage.css";
     const HomePage: React.FC;
     export default HomePage;
 }
