@@ -267,29 +267,31 @@ const Contacts: React.FC = () => {
               </div>
             )}
             <div className="auth-footer">
-              <span>
+              <span className="auth-timer">
                 Envio de um novo código em{" "}
                 <strong>{secondsLeft} segundos</strong>
               </span>
-              <button
-                className={`validating-btn ${
-                  code.join("").length === 6 ? "active" : ""
-                }`}
-                disabled={code.join("").length < 6}
-                onClick={handleValidate}
-              >
-                Validar
-              </button>
-              <button
-                className="close-auth"
-                onClick={() => {
-                  if (verifyingIndex !== null) {
-                    handleCancel(verifyingIndex);
-                  }
-                }}
-              >
-                Fechar
-              </button>
+              <div className="auth-buttons-wrapper">
+                <button
+                  className={`validating-btn ${
+                    code.join("").length === 6 ? "active" : ""
+                  }`}
+                  disabled={code.join("").length < 6}
+                  onClick={handleValidate}
+                >
+                  Validar
+                </button>
+                <button
+                  className="close-auth"
+                  onClick={() => {
+                    if (verifyingIndex !== null) {
+                      handleCancel(verifyingIndex);
+                    }
+                  }}
+                >
+                  Fechar
+                </button>
+              </div>
             </div>
           </div>
         )}
