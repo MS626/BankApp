@@ -42,3 +42,20 @@
 .btn-outline:hover {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .step-buttons {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .btn-outline,
+  .btn-primary {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: 40%;
+    max-width: 45%;
+  }
+}

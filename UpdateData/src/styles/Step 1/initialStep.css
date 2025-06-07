@@ -72,3 +72,37 @@
   flex: 1;
   line-height: 1.5;
 }
+
+@media (max-width: 768px) {
+  .step-inicio-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .step-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .step-box {
+    padding: 1.5rem 1rem;
+  }
+
+  .step-list {
+    gap: 1.5rem;
+  }
+
+  .step-list li {
+    font-size: 0.9rem;
+    gap: 1rem;
+  }
+
+  .step-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .step-icon {
+    font-size: 1.3rem;
+    min-width: 30px;
+  }
+}

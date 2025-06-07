@@ -98,3 +98,70 @@
   font-weight: bold;
   color: black;
 }
+
+@media (max-width: 768px) {
+  .step-progress-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .step-title-left {
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .step-progress {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 1rem;
+    max-width: 100%;
+  }
+
+  .step-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25%;
+  }
+
+  .step-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .step-label {
+    font-size: 0.7rem;
+    margin-top: 0.4rem;
+    text-align: center;
+  }
+
+  .step-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 1px;
+  }
+
+  .line-div {
+    flex: 1;
+    height: 2px;
+    width: 100%;
+  }
+
+  .step-line {
+    width: 67px;
+    height: 2px;
+    background-color: #a1a9ad;
+  }
+
+  .step-line.completed {
+    background-color: #548668;
+  }
+}
