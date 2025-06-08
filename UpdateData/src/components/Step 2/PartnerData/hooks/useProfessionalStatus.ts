@@ -1,42 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 
 interface ProfessionalStatus {
-  id: string;
-  label: string;
+  name: string;
 }
 
-const UseProfessionalStatus: React.FC = () => {
+export const UseProfessionalStatus = () => {
   const [status, setStatus] = useState<ProfessionalStatus[]>([]);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchStatuses = async () => {
-      try {
-        const { data } = await axios.get<ProfessionalStatus[]>(
-          "https://run.mocky.io/v3/810e6515-bc64-4b0f-9903-94a4432c3823"
-        );
-        setStatus(data);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to load Professional Status.");
-      }
-    };
-
-    fetchStatuses();
+    fetch("https://run.mocky.io/v3/c24e6f94-ed60-4ec4-a713-4ad3183be762")
+      .then((res) => res.json())
+      .then((data) => setStatus(data.status || []))
+      .catch((err) => console.error("Error loading status:", err));
   }, []);
 
-  return (
-    <div>
-      <h3>List of Professional Status</h3>
-      {error && <p>{error}</p>}
-      <ul>
-        {status.map((status) => (
-          <li key={status.label}>{status.id}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  return { status };
 };
-
-export default UseProfessionalStatus;

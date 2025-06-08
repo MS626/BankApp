@@ -1,42 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 
 interface IdentificationDocument {
-  id: string;
-  label: string;
+  name: string;
 }
 
-const UseIdentificationDocuments: React.FC = () => {
+export const UseIdentificationDocuments = () => {
   const [documents, setDocuments] = useState<IdentificationDocument[]>([]);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchDocuments = async () => {
-      try {
-        const { data } = await axios.get<IdentificationDocument[]>(
-          "https://run.mocky.io/v3/a5e63435-f578-47b6-b9cb-0650b6922a2b"
-        );
-        setDocuments(data);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to load identification Documents.");
-      }
-    };
-
-    fetchDocuments();
+    fetch("https://run.mocky.io/v3/81691b6b-0c7d-45a9-8d04-00e0c3b6da5e")
+      .then((res) => res.json())
+      .then((data) => setDocuments(data.documents || []))
+      .catch((err) => console.error("Error loading document types:", err));
   }, []);
 
-  return (
-    <div>
-      <h3>List of identification Documents</h3>
-      {error && <p>{error}</p>}
-      <ul>
-        {documents.map((documents) => (
-          <li key={documents.label}>{documents.id}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  return { documents };
 };
-
-export default UseIdentificationDocuments;

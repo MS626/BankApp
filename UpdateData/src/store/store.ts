@@ -105,8 +105,23 @@ export interface PartnerDataState {
   district: string;
   county: string;
   parish: string;
-  hasSecondNationality: string;
-  hasForeignTaxes: string;
+  documentType: string;
+  documentCountry: string;
+  documentNumber: string;
+  documentOptionValidity: string;
+  documentValidity: string;
+  emissionDate: string;
+  nif: string;
+  zipcode: string;
+  city: string;
+  street: string;
+  door: string;
+  floor: string;
+  profession: string;
+  currentProfession: string;
+  employer: string;
+  position: string;
+  share: string;
 }
 
 interface StepState {
@@ -136,13 +151,20 @@ interface StepState {
   setNavStep: (step: number) => void;
   setTitle: (title: string) => void;
   setFormComplete: (complete: boolean) => void;
-  updateDocument: (field: keyof StepState["documents"], file: File | null) => void;
-  setDocumentError: (field: keyof StepState["documentErrors"], message: string | null) => void;
+  updateDocument: (
+    field: keyof StepState["documents"],
+    file: File | null
+  ) => void;
+  setDocumentError: (
+    field: keyof StepState["documentErrors"],
+    message: string | null
+  ) => void;
   acceptDocument: (index: number) => void;
   setPartnerData: (field: keyof PartnerDataState, value: string) => void;
+  isPartnerFormValid: () => boolean;
 }
 
-export const useStepStore = create<StepState>((set) => ({
+export const useStepStore = create<StepState>((set, get) => ({
   currentStep: 0,
   currentNavStep: 1,
   stepTitle: "Dados do Cliente",
@@ -172,8 +194,23 @@ export const useStepStore = create<StepState>((set) => ({
     district: "",
     county: "",
     parish: "",
-    hasSecondNationality: "",
-    hasForeignTaxes: "",
+    documentType: "",
+    documentCountry: "",
+    documentNumber: "",
+    documentOptionValidity: "",
+    documentValidity: "",
+    emissionDate: "",
+    nif: "",
+    zipcode: "",
+    city: "",
+    street: "",
+    door: "",
+    floor: "",
+    profession: "",
+    currentProfession: "",
+    employer: "",
+    position: "",
+    share: "",
   },
   setStep: (step) => set({ currentStep: step }),
   setNavStep: (step) => set({ currentNavStep: step }),
@@ -206,4 +243,34 @@ export const useStepStore = create<StepState>((set) => ({
         [field]: value,
       },
     })),
+  isPartnerFormValid: () => {
+    const data = get().partnerData;
+    return (
+      !!data.fullName &&
+      !!data.sex &&
+      !!data.nationality &&
+      !!data.birthDate &&
+      !!data.naturality &&
+      !!data.district &&
+      !!data.county &&
+      !!data.parish &&
+      !!data.documentType &&
+      !!data.documentCountry &&
+      !!data.documentNumber &&
+      !!data.documentOptionValidity &&
+      !!data.documentValidity &&
+      (data.documentOptionValidity !== "comValidade" || !!data.emissionDate) &&
+      !!data.nif &&
+      !!data.zipcode &&
+      !!data.city &&
+      !!data.street &&
+      !!data.door &&
+      !!data.floor &&
+      !!data.profession &&
+      !!data.currentProfession &&
+      !!data.employer &&
+      !!data.position &&
+      !!data.share
+    );
+  },
 }));

@@ -1,0 +1,109 @@
+.document-step-box {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 980px;
+  padding-bottom: 1rem;
+  font-family: "Open Sans", sans-serif;
+  color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  font-size: small;
+}
+
+.document-title {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #000;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.document-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.document-field-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.document-flag-left {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.document-radio-label {
+  font-size: 0.75rem;
+  color: #bbb;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.document-radio-options {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  height: 61px;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 0.85rem;
+  background-color: #fff;
+}
+
+.document-radio-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.document-radio-options input[type="radio"] {
+  accent-color: #000;
+  transform: scale(1.1);
+}
+
+.document-radio-options.no-border {
+  border: none;
+  padding-left: 0;
+}
+
+@media (max-width: 768px) {
+  .document-step-box {
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: unset;
+  }
+
+  .document-title {
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .document-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .document-radio-options {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 0.8rem;
+  }
+}

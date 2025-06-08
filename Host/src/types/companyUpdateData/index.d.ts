@@ -20,8 +20,23 @@ declare module "#not-for-import/companyUpdateData/store/store" {
         district: string;
         county: string;
         parish: string;
-        hasSecondNationality: string;
-        hasForeignTaxes: string;
+        documentType: string;
+        documentCountry: string;
+        documentNumber: string;
+        documentOptionValidity: string;
+        documentValidity: string;
+        emissionDate: string;
+        nif: string;
+        zipcode: string;
+        city: string;
+        street: string;
+        door: string;
+        floor: string;
+        profession: string;
+        currentProfession: string;
+        employer: string;
+        position: string;
+        share: string;
     }
     export const useStepStore: any;
 }
@@ -106,9 +121,56 @@ declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/
         options?: string[];
         type?: string;
         disabled?: boolean;
+        flag?: string;
     }
     const FloatingField: React.FC<FloatingFieldProps>;
     export default FloatingField;
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/PersonalInfo/personalInfo" {
+    import React from "react";
+    import "../../../../styles/Step 2/PartnerData/PersonalInfo/personalInfo.css";
+    const DocumentInfoBlock: React.FC;
+    export default DocumentInfoBlock;
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/hooks/useIdentificationDocuments" {
+    interface IdentificationDocument {
+        name: string;
+    }
+    export const UseIdentificationDocuments: () => {
+        documents: IdentificationDocument[];
+    };
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/DocumentInfo/documentInfo" {
+    import React from "react";
+    import "../../../../styles/Step 2/PartnerData/DocumentInfo/documentInfo.css";
+    const DocumentInfoBlock: React.FC;
+    export default DocumentInfoBlock;
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/ResidenceInfo/residenceInfo" {
+    import React from "react";
+    import "../../../../styles/Step 2/PartnerData/ResidenceInfo/residenceInfo.css";
+    const ResidenceInfo: React.FC;
+    export default ResidenceInfo;
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/hooks/useProfessionalStatus" {
+    interface ProfessionalStatus {
+        name: string;
+    }
+    export const UseProfessionalStatus: () => {
+        status: ProfessionalStatus[];
+    };
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/ProfessionalInfo/professionalInfo" {
+    import React from "react";
+    import "../../../../styles/Step 2/PartnerData/ProfessionalInfo/professionalInfo.css";
+    const ProfessionalStatusBlock: React.FC;
+    export default ProfessionalStatusBlock;
+}
+declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/CompanyInfo/companyInfo" {
+    import React from "react";
+    import "../../../../styles/Step 2/PartnerData/CompanyInfo/companyInfo.css";
+    const PartnerShareBlock: React.FC;
+    export default PartnerShareBlock;
 }
 declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/partnerData" {
     import React from "react";
