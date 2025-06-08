@@ -146,7 +146,11 @@ interface StepState {
   acceptedDocuments: boolean[];
   code: string;
   partnerData: PartnerDataState;
-
+  isPersonalInfoValid: boolean;
+  isDocumentInfoValid: boolean;
+  isResidenceInfoValid: boolean;
+  isProfessionalInfoValid: boolean;
+  isCompanyInfoValid: boolean;
   setStep: (step: number) => void;
   setNavStep: (step: number) => void;
   setTitle: (title: string) => void;
@@ -161,6 +165,17 @@ interface StepState {
   ) => void;
   acceptDocument: (index: number) => void;
   setPartnerData: (field: keyof PartnerDataState, value: string) => void;
+  setBlockValidity: (
+    block: keyof Pick<
+      StepState,
+      | "isPersonalInfoValid"
+      | "isDocumentInfoValid"
+      | "isResidenceInfoValid"
+      | "isProfessionalInfoValid"
+      | "isCompanyInfoValid"
+    >,
+    isValid: boolean
+  ) => void;
   isPartnerFormValid: () => boolean;
 }
 
@@ -212,6 +227,11 @@ export const useStepStore = create<StepState>((set, get) => ({
     position: "",
     share: "",
   },
+  isPersonalInfoValid: false,
+  isDocumentInfoValid: false,
+  isResidenceInfoValid: false,
+  isProfessionalInfoValid: false,
+  isCompanyInfoValid: false,
   setStep: (step) => set({ currentStep: step }),
   setNavStep: (step) => set({ currentNavStep: step }),
   setTitle: (title) => set({ stepTitle: title }),
@@ -243,34 +263,15 @@ export const useStepStore = create<StepState>((set, get) => ({
         [field]: value,
       },
     })),
+  setBlockValidity: (block, isValid) => set({ [block]: isValid }),
   isPartnerFormValid: () => {
-    const data = get().partnerData;
+    const s = get();
     return (
-      !!data.fullName &&
-      !!data.sex &&
-      !!data.nationality &&
-      !!data.birthDate &&
-      !!data.naturality &&
-      !!data.district &&
-      !!data.county &&
-      !!data.parish &&
-      !!data.documentType &&
-      !!data.documentCountry &&
-      !!data.documentNumber &&
-      !!data.documentOptionValidity &&
-      !!data.documentValidity &&
-      (data.documentOptionValidity !== "comValidade" || !!data.emissionDate) &&
-      !!data.nif &&
-      !!data.zipcode &&
-      !!data.city &&
-      !!data.street &&
-      !!data.door &&
-      !!data.floor &&
-      !!data.profession &&
-      !!data.currentProfession &&
-      !!data.employer &&
-      !!data.position &&
-      !!data.share
+      s.isPersonalInfoValid &&
+      s.isDocumentInfoValid &&
+      s.isResidenceInfoValid &&
+      s.isProfessionalInfoValid &&
+      s.isCompanyInfoValid
     );
   },
 }));

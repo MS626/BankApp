@@ -4,9 +4,10 @@ import { useStepStore } from "../../store/store";
 import "../../styles/Navigation/navigation.css";
 
 const StepNavigation: React.FC = () => {
-  const { currentNavStep, setNavStep, isFormComplete, stepPaths } =
+  const { currentNavStep, setNavStep, stepPaths, isFormComplete } =
     useStepStore();
   const navigate = useNavigate();
+  console.log("isFormComplete no Navigation:", isFormComplete);
 
   const handleBack = () => {
     const previousStep = currentNavStep - 1;

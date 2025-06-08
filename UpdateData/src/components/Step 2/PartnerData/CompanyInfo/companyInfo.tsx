@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FloatingField from "../floatingField";
 import { useStepStore } from "../../../../store/store";
 
 import "../../../../styles/Step 2/PartnerData/CompanyInfo/companyInfo.css";
 
 const PartnerShareBlock: React.FC = () => {
-  const { partnerData, setPartnerData } = useStepStore();
+  const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
+
+  useEffect(() => {
+    const isComplete = !!partnerData.position && !!partnerData.share;
+    console.log("Validating Company Info:", isComplete);
+    setBlockValidity("isCompanyInfoValid", isComplete);
+  }, [partnerData, setBlockValidity]);
 
   return (
     <div className="company-box">

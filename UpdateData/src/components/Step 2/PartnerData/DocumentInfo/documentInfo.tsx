@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStepStore } from "../../../../store/store";
 import { UseIdentificationDocuments } from "../hooks/useIdentificationDocuments";
 import FloatingField from "../floatingField";
 import "../../../../styles/Step 2/PartnerData/DocumentInfo/documentInfo.css";
 
 const DocumentInfoBlock: React.FC = () => {
-  const { partnerData, setPartnerData } = useStepStore();
+  const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
   const { documents } = UseIdentificationDocuments();
 
   const handleValidityChange = (value: string) => {
@@ -14,6 +14,28 @@ const DocumentInfoBlock: React.FC = () => {
       setPartnerData("documentValidity", "");
     }
   };
+
+  useEffect(() => {
+    const requiresValidity =
+      partnerData.documentOptionValidity === "comValidade";
+
+    const isComplete =
+      !!partnerData.documentType &&
+      !!partnerData.documentNumber &&
+      !!partnerData.nif &&
+      !!partnerData.documentOptionValidity &&
+      (!requiresValidity || !!partnerData.documentValidity);
+
+    console.log("Validating Document Info:", isComplete);
+    setBlockValidity("isDocumentInfoValid", isComplete);
+  }, [
+    partnerData.documentType,
+    partnerData.documentNumber,
+    partnerData.nif,
+    partnerData.documentOptionValidity,
+    partnerData.documentValidity,
+    setBlockValidity,
+  ]);
 
   return (
     <div className="document-step-box">

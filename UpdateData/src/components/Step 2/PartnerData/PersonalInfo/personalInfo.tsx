@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStepStore } from "../../../../store/store";
 import { useSexTypes } from "../hooks/useSexTypes";
 import { useDistricts } from "../hooks/useDistricts";
@@ -7,13 +7,33 @@ import { useParishes } from "../hooks/useParishes";
 import FloatingField from "../floatingField";
 import "../../../../styles/Step 2/PartnerData/PersonalInfo/personalInfo.css";
 
-const DocumentInfoBlock: React.FC = () => {
-  const { partnerData, setPartnerData } = useStepStore();
+const PersonalInfoBlock: React.FC = () => {
+  const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
 
   const { sexTypes } = useSexTypes();
   const { districts } = useDistricts();
   const { municipalities } = useMunicipalities(partnerData.district);
   const { parishes } = useParishes(partnerData.county);
+
+  useEffect(() => {
+    const isComplete =
+      !!partnerData.fullName &&
+      !!partnerData.sex &&
+      !!partnerData.birthDate &&
+      !!partnerData.district &&
+      !!partnerData.county &&
+      !!partnerData.parish;
+    console.log("Validating Personal Info:", isComplete);
+    setBlockValidity("isPersonalInfoValid", isComplete);
+  }, [
+    partnerData.fullName,
+    partnerData.sex,
+    partnerData.birthDate,
+    partnerData.district,
+    partnerData.county,
+    partnerData.parish,
+    setBlockValidity,
+  ]);
 
   return (
     <div className="partner-container">
@@ -108,4 +128,4 @@ const DocumentInfoBlock: React.FC = () => {
   );
 };
 
-export default DocumentInfoBlock;
+export default PersonalInfoBlock;

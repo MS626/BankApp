@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FloatingField from "../floatingField";
 import { useStepStore } from "../../../../store/store";
-
-import "../../../../styles/Step 2/PartnerData/ProfessionalInfo/professionalInfo.css";
 import { UseProfessionalStatus } from "../hooks/useProfessionalStatus";
+import "../../../../styles/Step 2/PartnerData/ProfessionalInfo/professionalInfo.css";
 
 const ProfessionalStatusBlock: React.FC = () => {
-  const { partnerData, setPartnerData } = useStepStore();
+  const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
   const { status } = UseProfessionalStatus();
+
+  useEffect(() => {
+    const isComplete =
+      !!partnerData.profession &&
+      !!partnerData.currentProfession &&
+      !!partnerData.employer;
+    console.log("Validating Professional Info:", isComplete);
+    setBlockValidity("isProfessionalInfoValid", isComplete);
+  }, [
+    partnerData.profession,
+    partnerData.currentProfession,
+    partnerData.employer,
+    setBlockValidity,
+  ]);
 
   return (
     <div className="professional-box">

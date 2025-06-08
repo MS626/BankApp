@@ -10,20 +10,39 @@ import StepNavigation from "../../Navigation/navigation";
 import "../../../styles/Step 2/PartnerData/partnerData.css";
 
 const PartnerData: React.FC = () => {
-  const { setStep, setTitle } = useStepStore();
-  const setFormComplete = useStepStore((state) => state.setFormComplete);
-  const isPartnerFormValid = useStepStore((state) => state.isPartnerFormValid);
-  const partnerData = useStepStore((state) => state.partnerData);
+  const {
+    setStep,
+    setTitle,
+    isPersonalInfoValid,
+    isDocumentInfoValid,
+    isResidenceInfoValid,
+    isProfessionalInfoValid,
+    isCompanyInfoValid,
+    setFormComplete,
+  } = useStepStore();
 
   useEffect(() => {
     setStep(2);
     setTitle("Atualizar dados");
-    setFormComplete(isPartnerFormValid());
-  }, [setStep, setTitle, setFormComplete, isPartnerFormValid, partnerData]);
+  }, [setStep, setTitle]);
 
   useEffect(() => {
-    setFormComplete(isPartnerFormValid());
-  }, [Object.values(partnerData).join(""), setFormComplete]);
+    const allValid =
+      isPersonalInfoValid &&
+      isDocumentInfoValid &&
+      isResidenceInfoValid &&
+      isProfessionalInfoValid &&
+      isCompanyInfoValid;
+
+    setFormComplete(allValid);
+  }, [
+    isPersonalInfoValid,
+    isDocumentInfoValid,
+    isResidenceInfoValid,
+    isProfessionalInfoValid,
+    isCompanyInfoValid,
+    setFormComplete,
+  ]);
 
   return (
     <div className="partner-wrapper">

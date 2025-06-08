@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FloatingField from "../floatingField";
 import { useStepStore } from "../../../../store/store";
 
 import "../../../../styles/Step 2/PartnerData/ResidenceInfo/residenceInfo.css";
 
 const ResidenceInfo: React.FC = () => {
-  const { partnerData, setPartnerData } = useStepStore();
+  const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
+
+  useEffect(() => {
+    const isComplete =
+      !!partnerData.zipcode &&
+      !!partnerData.city &&
+      !!partnerData.street &&
+      !!partnerData.door &&
+      !!partnerData.floor;
+    console.log("Validating Residence Info:", isComplete);
+    setBlockValidity("isResidenceInfoValid", isComplete);
+  }, [
+    partnerData.zipcode,
+    partnerData.city,
+    partnerData.street,
+    partnerData.door,
+    partnerData.floor,
+    setBlockValidity,
+  ]);
 
   return (
     <div className="residence-box">

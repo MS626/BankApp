@@ -129,8 +129,8 @@ declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/
 declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/PersonalInfo/personalInfo" {
     import React from "react";
     import "../../../../styles/Step 2/PartnerData/PersonalInfo/personalInfo.css";
-    const DocumentInfoBlock: React.FC;
-    export default DocumentInfoBlock;
+    const PersonalInfoBlock: React.FC;
+    export default PersonalInfoBlock;
 }
 declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/hooks/useIdentificationDocuments" {
     interface IdentificationDocument {
