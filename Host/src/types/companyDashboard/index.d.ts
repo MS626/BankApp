@@ -8,6 +8,16 @@ declare module "#not-for-import/companyDashboard/components/miniHeader" {
     const MiniHeader: React.FC;
     export default MiniHeader;
 }
+declare module "#not-for-import/companyDashboard/components/Modal/developmentModal" {
+    import React from "react";
+    import "../../styles/Modal/DevelopmentModal.css";
+    interface Props {
+        show: boolean;
+        onClose: () => void;
+    }
+    const DevelopmentModal: React.FC<Props>;
+    export default DevelopmentModal;
+}
 declare module "#not-for-import/companyDashboard/components/homePage" {
     import React from "react";
     import "../styles/homepage.css";

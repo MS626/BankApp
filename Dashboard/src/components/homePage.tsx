@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import useMovementsStore from "../store/store";
 import MiniHeader from "./miniHeader";
 import "../styles/homepage.css";
+import DevelopmentModal from "./Modal/developmentModal";
 
 const HomePage: React.FC = () => {
   const movements = useMovementsStore((state) => state.movements);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="homepage">
@@ -31,8 +33,12 @@ const HomePage: React.FC = () => {
       </div>
 
       <div className="space-button">
-        <button className="button-account">Mudar conta</button>
+        <button className="button-account" onClick={() => setShowModal(true)}>
+          Mudar conta
+        </button>
       </div>
+
+      <DevelopmentModal show={showModal} onClose={() => setShowModal(false)} />
 
       <div className="account-section">
         <div className="account-box">
