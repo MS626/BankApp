@@ -11,6 +11,7 @@ interface FloatingFieldProps {
   type?: string;
   disabled?: boolean;
   flag?: string;
+  error?: string | null;
 }
 
 const FloatingField: React.FC<FloatingFieldProps> = ({
@@ -21,6 +22,7 @@ const FloatingField: React.FC<FloatingFieldProps> = ({
   type = "text",
   disabled = false,
   flag,
+  error,
 }) => {
   const [inputType, setInputType] = useState(type);
 
@@ -74,8 +76,10 @@ const FloatingField: React.FC<FloatingFieldProps> = ({
             }
           }}
           disabled={disabled}
+          className={error ? "error" : ""}
         />
       )}
+      {error && <span className="error-message">{error}</span>}
     </div>
   );
 };

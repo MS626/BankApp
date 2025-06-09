@@ -212,7 +212,7 @@ export const useStepStore = create<StepState>((set, get) => ({
     documentType: "",
     documentCountry: "",
     documentNumber: "",
-    documentOptionValidity: "",
+    documentOptionValidity: "comValidade",
     documentValidity: "",
     emissionDate: "",
     nif: "",

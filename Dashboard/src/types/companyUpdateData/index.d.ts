@@ -122,6 +122,7 @@ declare module "#not-for-import/companyUpdateData/components/Step 2/PartnerData/
         type?: string;
         disabled?: boolean;
         flag?: string;
+        error?: string | null;
     }
     const FloatingField: React.FC<FloatingFieldProps>;
     export default FloatingField;

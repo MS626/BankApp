@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import FloatingField from "../floatingField";
 import { useStepStore } from "../../../../store/store";
 
@@ -6,9 +6,24 @@ import "../../../../styles/Step 2/PartnerData/ResidenceInfo/residenceInfo.css";
 
 const ResidenceInfo: React.FC = () => {
   const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
+  const [zipError, setZipError] = useState<string | null>(null);
+
+  const handleZipChange = (value: string) => {
+    const cleaned = value.replace(/\D/g, "").slice(0, 7);
+    const masked =
+      cleaned.length > 4
+        ? `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`
+        : cleaned;
+    setPartnerData("zipcode", masked);
+
+    const isValid = /^\d{4}-\d{3}$/.test(masked);
+    setZipError(isValid ? null : "Formato inválido. Use 1234-567");
+  };
 
   useEffect(() => {
+    const isZipValid = /^\d{4}-\d{3}$/.test(partnerData.zipcode);
     const isComplete =
+      isZipValid &&
       !!partnerData.zipcode &&
       !!partnerData.city &&
       !!partnerData.street &&
@@ -46,7 +61,8 @@ const ResidenceInfo: React.FC = () => {
             <FloatingField
               label="Código postal"
               value={partnerData.zipcode}
-              onChange={(e) => setPartnerData("zipcode", e.target.value)}
+              onChange={(e) => handleZipChange(e.target.value)}
+              error={zipError}
             />
           </div>
 

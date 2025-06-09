@@ -4,15 +4,20 @@ import { useStepStore } from "../../../../store/store";
 import { UseProfessionalStatus } from "../hooks/useProfessionalStatus";
 import "../../../../styles/Step 2/PartnerData/ProfessionalInfo/professionalInfo.css";
 
+const EXCLUDED_STATUSES = ["Desempregado", "Estudante", "Reformado"];
+
 const ProfessionalStatusBlock: React.FC = () => {
   const { partnerData, setPartnerData, setBlockValidity } = useStepStore();
   const { status } = UseProfessionalStatus();
 
+  const isExcluded = EXCLUDED_STATUSES.includes(partnerData.profession);
+
   useEffect(() => {
     const isComplete =
       !!partnerData.profession &&
-      !!partnerData.currentProfession &&
-      !!partnerData.employer;
+      (isExcluded ||
+        (!!partnerData.currentProfession && !!partnerData.employer));
+
     console.log("Validating Professional Info:", isComplete);
     setBlockValidity("isProfessionalInfoValid", isComplete);
   }, [
@@ -20,6 +25,7 @@ const ProfessionalStatusBlock: React.FC = () => {
     partnerData.currentProfession,
     partnerData.employer,
     setBlockValidity,
+    isExcluded,
   ]);
 
   return (
@@ -30,7 +36,7 @@ const ProfessionalStatusBlock: React.FC = () => {
           {/* Situação profissional */}
           <div className="partner-field-group">
             <FloatingField
-              label="Documento de identificação"
+              label="Situação profissional"
               value={partnerData.profession}
               onChange={(e) => setPartnerData("profession", e.target.value)}
               options={status.map((d) => d.name)}
@@ -45,6 +51,7 @@ const ProfessionalStatusBlock: React.FC = () => {
               onChange={(e) =>
                 setPartnerData("currentProfession", e.target.value)
               }
+              disabled={isExcluded}
             />
           </div>
 
@@ -54,6 +61,7 @@ const ProfessionalStatusBlock: React.FC = () => {
               label="Entidade patronal"
               value={partnerData.employer}
               onChange={(e) => setPartnerData("employer", e.target.value)}
+              disabled={isExcluded}
             />
           </div>
         </div>
