@@ -9,7 +9,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   return (
     <header className="header">
       <div className="header-left">
-        {/* Botão só visível em mobile */}
         <button className="menu-toggle" onClick={onToggleSidebar}>
           ☰
         </button>

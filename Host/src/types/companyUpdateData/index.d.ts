@@ -226,6 +226,19 @@ declare module "#not-for-import/companyUpdateData/components/Step 3/documents" {
     const Documents: React.FC;
     export default Documents;
 }
+declare module "#not-for-import/companyUpdateData/components/Modal/mesageModal" {
+    import React from "react";
+    import "../../styles/Modal/MessageModal.css";
+    interface Props {
+        show: boolean;
+        onClose: () => void;
+        title?: string;
+        message?: string;
+        hideCloseButton?: boolean;
+    }
+    const MessageModal: React.FC<Props>;
+    export default MessageModal;
+}
 declare module "#not-for-import/companyUpdateData/components/Step 4/conclusion" {
     import React from "react";
     import "../../styles/Step 4/conclusion.css";

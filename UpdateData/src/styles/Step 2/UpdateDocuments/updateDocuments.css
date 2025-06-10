@@ -8,7 +8,8 @@
 
 .update-documents-container {
   margin: 0 auto;
-  width: 1280px;
+  width: 100%;
+  max-width: 870px;
   padding: 2rem;
   font-family: "Open Sans", sans-serif;
   color: #1c1c1c;

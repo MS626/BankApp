@@ -1,12 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useMovementsStore from "../store/store";
 import MiniHeader from "./miniHeader";
+import MessageModal from "./Modal/mesageModal";
+import { useAccountSummary } from "./Hook/useSummary";
+import { useLocation } from "react-router-dom";
 import "../styles/homepage.css";
-import DevelopmentModal from "./Modal/developmentModal";
 
 const HomePage: React.FC = () => {
   const movements = useMovementsStore((state) => state.movements);
   const [showModal, setShowModal] = useState(false);
+
+  const { summary } = useAccountSummary();
+  const location = useLocation();
+
+  const [showAlert, setShowAlert] = useState(true);
+
+  useEffect(() => {
+    if (location.state?.fromConclusion) {
+      setShowAlert(false);
+    }
+    window.history.replaceState({}, document.title);
+  }, [location.state]);
+
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => {
+        setShowModal(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showModal]);
 
   return (
     <div className="homepage">
@@ -14,23 +37,25 @@ const HomePage: React.FC = () => {
 
       <div className="space-top"></div>
 
-      <div className="alert-box">
-        <div className="alert-icon">⚠️</div>
-        <div className="alert-content">
-          <p className="alert-title">
-            <strong>Precisamos que atualize os dados da Empresa!</strong>
-          </p>
-          <p className="alert-text">
-            Lembre-se que deve ter todos os elementos identificativos
-            atualizados, caso contrário pode perder acesso a fazer transações e
-            outras
-            <span className="break-on-large"> funcionalidades. </span>
-          </p>
-          <a href="/update" className="alert-link">
-            Saiba o que fazer aqui →
-          </a>
+      {showAlert && (
+        <div className="alert-box">
+          <div className="alert-icon">⚠️</div>
+          <div className="alert-content">
+            <p className="alert-title">
+              <strong>Precisamos que atualize os dados da Empresa!</strong>
+            </p>
+            <p className="alert-text">
+              Lembre-se que deve ter todos os elementos identificativos
+              atualizados, caso contrário pode perder acesso a fazer transações
+              e outras
+              <span className="break-on-large"> funcionalidades. </span>
+            </p>
+            <a href="/update" className="alert-link">
+              Saiba o que fazer aqui →
+            </a>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="space-button">
         <button className="button-account" onClick={() => setShowModal(true)}>
@@ -38,27 +63,31 @@ const HomePage: React.FC = () => {
         </button>
       </div>
 
-      <DevelopmentModal show={showModal} onClose={() => setShowModal(false)} />
-
       <div className="account-section">
         <div className="account-box">
           <div className="account-header">
             <span className="bank-logo">🏦</span>
             <div>
-              <div className="bank-name">ITSector</div>
-              <div className="bank-id">378 424 438 1</div>
+              <div className="bank-name">{summary?.account.bankName}</div>
+              <div className="bank-id">{summary?.account.bankId}</div>
             </div>
           </div>
 
           <div className="account-balance">
             <div className="label">Saldo disponível</div>
-            <div className="value">
-              8.400.000<span>,00</span> EUR
+            <div className="value">{summary?.account.availableBalance} EUR</div>
+            <div className="sub">
+              Saldo contabilístico {summary?.account.bookBalance} EUR
             </div>
-            <div className="sub">Saldo contabilístico 10.000.000,00 EUR</div>
           </div>
 
-          <div className="account-detail">Ver detalhe &gt;</div>
+          <div
+            className="account-detail"
+            onClick={() => setShowModal(true)}
+            style={{ cursor: "pointer" }}
+          >
+            Ver detalhe &gt;
+          </div>
         </div>
 
         <div className="account-stats">
@@ -69,10 +98,10 @@ const HomePage: React.FC = () => {
             </div>
             <div className="numbers-stat">
               <div className="stat-today">Hoje</div>
-              <div className="stat-value">
-                50.700.000<span>,00</span> EUR
+              <div className="stat-value">{summary?.entries.today} EUR</div>
+              <div className="stat-sub">
+                Este mês {summary?.entries.thisMonth} EUR
               </div>
-              <div className="stat-sub">Este mês 10.000.000,00 EUR</div>
             </div>
           </div>
 
@@ -83,10 +112,10 @@ const HomePage: React.FC = () => {
             </div>
             <div className="numbers-stat"></div>
             <div className="stat-today">Hoje</div>
-            <div className="stat-value">
-              42.300.000<span>,00</span> EUR
+            <div className="stat-value">{summary?.exits.today} EUR</div>
+            <div className="stat-sub">
+              Este mês {summary?.exits.thisMonth} EUR
             </div>
-            <div className="stat-sub">Este mês 10.000.000,00 EUR</div>
           </div>
         </div>
       </div>
@@ -96,7 +125,15 @@ const HomePage: React.FC = () => {
       <div className="movements-container">
         <div className="movements-header">
           <h2>Últimos movimentos</h2>
-          <a href="#" className="view-all">
+          <a
+            href="#"
+            className="view-all"
+            role="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowModal(true);
+            }}
+          >
             Ver todos os movimentos
           </a>
         </div>
@@ -132,6 +169,14 @@ const HomePage: React.FC = () => {
       </div>
 
       <div className="space-movements"></div>
+
+      <MessageModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        title="Funcionalidade em desenvolvimento"
+        message="Esta funcionalidade ainda está em desenvolvimento"
+        hideCloseButton={true}
+      />
     </div>
   );
 };

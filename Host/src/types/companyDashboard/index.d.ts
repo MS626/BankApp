@@ -2,21 +2,45 @@ declare module "#not-for-import/companyDashboard/store/store" {
     const useMovementsStore: any;
     export default useMovementsStore;
 }
+declare module "#not-for-import/companyDashboard/components/Modal/mesageModal" {
+    import React from "react";
+    import "../../styles/Modal/MessageModal.css";
+    interface Props {
+        show: boolean;
+        onClose: () => void;
+        title?: string;
+        message?: string;
+        hideCloseButton?: boolean;
+    }
+    const MessageModal: React.FC<Props>;
+    export default MessageModal;
+}
 declare module "#not-for-import/companyDashboard/components/miniHeader" {
     import React from "react";
     import "../styles/miniHeader.css";
     const MiniHeader: React.FC;
     export default MiniHeader;
 }
-declare module "#not-for-import/companyDashboard/components/Modal/developmentModal" {
-    import React from "react";
-    import "../../styles/Modal/DevelopmentModal.css";
-    interface Props {
-        show: boolean;
-        onClose: () => void;
+declare module "#not-for-import/companyDashboard/components/Hook/useSummary" {
+    interface AccountSummary {
+        account: {
+            bankName: string;
+            bankId: string;
+            availableBalance: string;
+            bookBalance: string;
+        };
+        entries: {
+            today: string;
+            thisMonth: string;
+        };
+        exits: {
+            today: string;
+            thisMonth: string;
+        };
     }
-    const DevelopmentModal: React.FC<Props>;
-    export default DevelopmentModal;
+    export const useAccountSummary: () => {
+        summary: AccountSummary | null;
+    };
 }
 declare module "#not-for-import/companyDashboard/components/homePage" {
     import React from "react";

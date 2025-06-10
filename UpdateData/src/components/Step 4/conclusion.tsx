@@ -3,25 +3,37 @@ import { useNavigate } from "react-router-dom";
 import { useStepStore } from "../../store/store";
 import StepProgress from "../Navigation/stepProgress";
 import "../../styles/Step 4/conclusion.css";
+import MessageModal from "../Modal/mesageModal";
 
 const Conclusion: React.FC = () => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
   const { setStep, setTitle } = useStepStore();
+  const navigate = useNavigate();
+
   const handleRating = (rate: number) => setRating(rate);
   const handleHover = (rate: number) => setHoverRating(rate);
   const handleLeave = () => setHoverRating(0);
-  const navigate = useNavigate();
 
   const handleSend = () => {
     if (feedback.trim()) {
       console.log("Feedback enviado:", { rating, feedback });
+      setShowModal(true);
+
+      setTimeout(() => {
+        setShowModal(false);
+        setRating(0);
+        setFeedback("");
+        navigate("/dashboard", { state: { fromConclusion: true } });
+      }, 2000);
     }
   };
 
   const handleGoHome = () => {
-    navigate("/dashboard");
+    navigate("/dashboard", { state: { fromConclusion: true } });
   };
 
   useEffect(() => {
@@ -86,6 +98,14 @@ const Conclusion: React.FC = () => {
             </button>
           </div>
         </div>
+
+        <MessageModal
+          show={showModal}
+          onClose={() => setShowModal(false)}
+          title="Obrigado pelo seu feedback!"
+          message="A sua opinião ajuda-nos a melhorar o serviço."
+          hideCloseButton={true}
+        />
 
         <div className="final-btn">
           <button className="go-home-btn" onClick={handleGoHome}>
