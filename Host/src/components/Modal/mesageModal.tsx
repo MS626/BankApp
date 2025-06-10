@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/Modal/MessageModal.css";
+import "../../styles/Modal/messageModal.css";
 
 interface Props {
   show: boolean;
