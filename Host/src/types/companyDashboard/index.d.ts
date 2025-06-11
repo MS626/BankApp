@@ -4,7 +4,7 @@ declare module "#not-for-import/companyDashboard/store/store" {
 }
 declare module "#not-for-import/companyDashboard/components/Modal/mesageModal" {
     import React from "react";
-    import "../../styles/Modal/MessageModal.css";
+    import "../../styles/Modal/messageModal.css";
     interface Props {
         show: boolean;
         onClose: () => void;

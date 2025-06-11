@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/header";
 import SideBar from "./components/sideBar";
+import SkeletonLoader from "./components/Skeleton/skeletonLoader";
 import "./App.css";
 
 const DashboardApp = lazy(() => import("companyDashboard/App"));
@@ -24,7 +25,7 @@ const App: React.FC = () => {
       {sidebarOpen && <div className="overlay" onClick={closeSidebar}></div>}
       <div className="main-layout">
         <SideBar isOpen={sidebarOpen} />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SkeletonLoader />}>
           <Routes>
             <Route index element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard/*" element={<DashboardApp />} />
